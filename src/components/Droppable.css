@@ -1,7 +1,8 @@
 .droppable {
-  min-width: 110px;
+  min-width: 210px;
+  min-height: 100px;
   padding: 0px 0px;
-  /* border-left: 1px solid #d3d3d3;
-  border-right: 1px solid #d3d3d3; */
+  /* border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada; */
   list-style-type: none;
 }

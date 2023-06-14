@@ -4,7 +4,7 @@ import { CSS } from "@dnd-kit/utilities";
 
 import Item from "./Item";
 
-const SortableItem = ({ id }) => {
+const SortableItem = ({ id, selectedItem, setSelectedItem }) => {
   const {
     attributes,
     listeners,
@@ -22,7 +22,12 @@ const SortableItem = ({ id }) => {
 
   return (
     <li style={style} ref={setNodeRef}>
-      <Item id={id} handler={{ ...attributes, ...listeners }} />
+      <Item
+        id={id}
+        handler={{ ...attributes, ...listeners }}
+        selectedItem={selectedItem}
+        setSelectedItem={setSelectedItem}
+      />
     </li>
   );
 };

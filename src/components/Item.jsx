@@ -2,12 +2,21 @@ import React from "react";
 
 import "./Item.css";
 
-const Item = ({ id, dragOverlay, handler }) => {
+const Item = ({ id, dragOverlay, handler, selectedItem, setSelectedItem }) => {
   const style = {
     cursor: dragOverlay ? "grabbing" : "grab",
   };
   return (
-    <div className="item">
+    <div
+      className="item"
+      onClick={(e) => {
+        e.stopPropagation();
+        setSelectedItem(id);
+      }}
+      style={{
+        border: selectedItem === id ? "2px solid skyblue" : "1px solid #dadada",
+      }}
+    >
       <div
         style={{ display: "flex", fontSize: "12px", flexDirection: "column" }}
       >
@@ -21,12 +30,13 @@ const Item = ({ id, dragOverlay, handler }) => {
       </div>
       <div
         style={{
-          background: "#dfdfdf",
-          height: "98px",
+          background: "#dfdfdfaa",
+          height: "96px",
           width: "16px",
-          borderTopRightRadius: "5px",
-          borderBottomRightRadius: "5px",
+          borderTopRightRadius: "4px",
+          borderBottomRightRadius: "4px",
           marginLeft: "auto",
+          marginRight: "1px",
           ...style,
         }}
         {...handler}
